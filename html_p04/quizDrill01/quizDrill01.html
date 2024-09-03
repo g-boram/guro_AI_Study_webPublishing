@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #quiz {
+        display: flex;
+    }
+    #wrap {
+        border: 2px solid #7aaae0;
+        padding: 30px;
+        width: 420px;
+    }
+    #firstRow {
+        width: 80px;
+    }
+    #quiz2Wrapper {
+        border: 2px solid #e0a87a;
+        width: 400px;
+        margin-left: 20px;
+        padding: 20px;
+    }
+    #quiz2Box{        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 50px 0;
+    }
+    #quiz2Content{
+        border: 2px solid #000;
+        width: 280px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    caption {
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    table {
+
+        width: 400px;
+        border: 2px solid #000;
+        border-collapse: collapse;
+    }
+    th {
+        border: 1px solid #000;
+    }
+    td {
+        border: 1px solid #000;
+    }
+</style>
+
+<body>
+    <div id="quiz">
+        <div id="wrap">
+            <h1>식단표(담당 쉐프 → 이나현)</h1>
+            <table>
+                <caption>5월 9일 알베르게 조식</caption>
+    
+                <tr>
+                    <th id="firstRow">구분</th>
+                    <th colspan="2">메뉴</th>
+                </tr>
+                <tr>
+                    <th rowspan="2">시간 <br/>7시~9시</th>
+                    <th>한식</th>
+                    <th>양식</th>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>현미밥</li>
+                            <li>소고기무국</li>
+                            <li>밑반찬4종류</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>모닝빵</li>
+                            <li>쨈&버터</li>
+                            <li>에그스크램블</li>
+                            <li>커피</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>    
+        </div>
+        <div id="quiz2Wrapper">
+            <h1>Quiz Drill 02</h1>
+            <div id="quiz2Box">
+                <div id="quiz2Content">
+                    &lt;div id="wrap"&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
