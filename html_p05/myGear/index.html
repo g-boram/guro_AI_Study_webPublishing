@@ -6,24 +6,78 @@
     <title>Document</title>
 
     <style>
-        div {
+        #wrapper {
             border: 1px solid #000;
-            width: 610px;
-            padding: 0 10px 10px 10px;
-            background-color: rgb(255, 255, 183);
+            width: 850px;
+            padding: 20px;
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #firstBox {
+            width: 90%;
+            margin: 50px 0;
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        #secondBox {
+            width: 90%;
+            margin: 50px 0;
+            display: flex;
+            justify-content: space-evenly;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
 
 <body>
-    <div>
+    <div id="wrapper">
         <h1>마이팟에 오신걸 환영합니다.</h1>
         <h5>여러분의 아이팟을과시할 공간에 오신걸 환영 합니다.참여하고 싶나요?아이팟 1세대 부터 최신 아이팟 나노 아이팟 중 가장 작은 아이팟 셔플이나 아이팟 중 가장 큰 아이팟 비디오 중에서 한 가지 모델이라도 있으면 됩니다.</h5>
         <h5>...</h5>
-        <h1>시애틀, 워싱턴</h1>
-        <h5>시애틀의 아이팟! 비구름과 스페이스 니들을 볼 수 있습니다. 628번지 커피숍은 볼 수 없습니다.</h5>
-        <h5>...</h5>
-        <img src="../image/seattle_video.jpg" alt="img"/>
+        
+        <div id="firstBox">
+            <a href="../view/ipotVideo.html" >
+                <img src="../thumb/seattle_video_150x100.jpg" alt="video"/>
+                <h5>seattle_video</h5>
+            </a>
+            <a href="../view/ipotClassic.html" >
+                <img src="../thumb/seattle_classic_150x100.jpg" alt="classic"/>
+                <h5>seattle_classic</h5>
+            </a>
+            <a href="../view/ipotShuffle.html" >
+                <img src="../thumb/seattle_shuffle_150x100.jpg" alt="shuffle"/>
+                <h5>seattle_shuffle</h5>
+            </a>
+            <a href="../view/ipotDowntown.html" >
+                <img src="../thumb/seattle_downtown_150x100.jpg" alt="downtown"/>
+                <h5>seattle_downtown</h5>
+            </a>
+        </div>
+        <div id="secondBox">
+            <a href="../view/ipotBritain.html" >
+                <img src="../thumb/britain_100x150.jpg" alt="britain"/>
+                <h5>britain</h5>
+            </a>
+            <a href="../view/ipotApplestore.html" >
+                <img src="../thumb/applestore_100x150.jpg" alt="applestore"/>
+                <h5>applestore</h5>
+            </a>
+        </div>
+        
     </div>
 </body>
 </html>
