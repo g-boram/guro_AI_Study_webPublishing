@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #wrapper{
+            background-color: pink;
+            padding: 50px;
+        }
+        #main {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #flexRow {
+            display: flex;
+            width: 80%;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        #map {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #181818;
+        }
+        #mapBtn {
+            background-color: #fff;
+            width: 50%;
+            height: 50px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+        }
+        #mapBtn > a {
+            text-decoration: none;
+            color: #181818;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div id="wrapper">
+        <div id="main">
+            <h1>음료 메뉴</h1>
+            <h3>시원한 녹차</h3>
+            <div id="flexRow">
+                <img src="../../images/green.jpg" alt="drinks" />
+                <h5>카밀레 꽃과 생강 한 조각이 들어간 Tea.</h5>
+            </div>
+            <h3>시원한 산딸기 과즙</h3>
+            <div id="flexRow">
+                <img src="../../images/lightblue.jpg" alt="drinks" />
+                <h5>레몬 그라스와 산딸기로 만든 시원한 주스.</h5>
+            </div>
+            <h3>블루베리 블리스</h3>
+            <div id="flexRow">
+                <img src="../../images/blue.jpg" alt="drinks" />
+                <h5>허브티에 블루베리와 체리로 편안함을.</h5>
+            </div>
+        </div>
+
+        <div id="map">
+            <div id="mapBtn">
+                <a href="./lounge.html" >
+                    <h3>시작페이지로</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
