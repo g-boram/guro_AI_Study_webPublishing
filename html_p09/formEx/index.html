@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력양식 요소</title>
+</head>
+<style>
+    div#wrap {
+
+    }
+    input[type=text] {
+        width: 50px;
+    }
+</style>
+<body>
+    <div id="wrap">
+        <h1>form 하위요소</h1>
+        
+        <form action="receive.html" method="get" id="fm">
+
+            히든<br>
+            <input type="hidden">
+
+            <br /><br />
+
+            파일 <br />
+            <input type="file" />
+            <br />
+
+            1줄 입력 (=텍스트 박스) 
+            <input type="text" name="data01" value="표시되는 값" autofocus>
+            <br><br>
+
+            암호 입력(=암호 입력상자) 
+            <input type="password" name="data02">
+            <br><br>
+            
+            <button type="submit">전송버튼</button>
+            
+        </form>
+        
+    </div>
+    <!-- div#wrap -->
+    
+</body>
+</html>
