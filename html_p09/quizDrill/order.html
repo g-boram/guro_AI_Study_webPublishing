@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    div#wrap {
+        border: 1px solid #000;
+        width: 600px;
+        height: auto;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    div#title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+    div#btnBox {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 10px;
+    }
+    div#inputWrapper {
+        padding: 10px;
+        margin: 20px 0;
+    }
+    div#inputBox {
+        padding-left: 30px;
+        display: flex;
+        margin: 10px 0;
+    }
+    div#radioBox {
+        padding-left: 30px;
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0;
+    }
+    div#textBox {
+        margin: 20px 0;
+    }
+    div#textBox > textarea{
+        width: 100%;
+        height: 80px;
+        border-radius: 5px;
+    }
+    div#inputBox > label {
+        width: 100px;
+        display: block;
+    }
+    div#inputBox > input {
+        width: 300px;
+        height: 25px;
+        border-radius: 5px;
+    }
+    div > span {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    div#plusH {
+        height: 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="title">프런트엔드 개발자 지원서</div>
+        <div id="subTitle">HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</div>
+        <hr />
+
+        <div id="inputWrapper">
+            <span>개인정보</span>
+            <div id="inputBox">
+                <label>이름</label>
+                <input type="text" />
+            </div>
+            <div id="inputBox">
+                <label>연락처</label>
+                <input type="tel" />
+            </div>
+
+            <div id="plusH"></div>
+            <span>지원분야</span>
+            <div id="radioBox">
+                <div id="flexRow">
+                    <input type="radio" id="radio"/>
+                    <label>웹 퍼블리싱</label>
+                </div>
+                <div id="flexRow">
+                    <input type="radio" id="radio"/>
+                    <label>웹 애플리케이션 개발</label>
+                </div>
+                <div id="flexRow">
+                    <input type="radio" id="radio"/>
+                    <label>개발 환경 개선</label>
+                </div>
+            </div>
+
+            <div id="plusH"></div>
+            <span>지원 동기</span>
+            <div id="textBox">
+                <textarea></textarea>
+            </div>
+
+            <div id="btnBox">
+                <button type="submit" >접수하기</button>
+                <button >다시쓰기</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

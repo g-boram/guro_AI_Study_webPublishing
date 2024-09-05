@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 데이터 전송 실습 02</title>
+</head>
+
+<style>
+    div#wrap {
+        border: 1px solid #000;
+        width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    fieldset {
+        margin: 20px 0;
+        width: 300px;
+        padding: 20px;
+    }
+    fieldset#checkBoxFiled {
+        width: 300px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    fieldset#btnFiled {
+        text-align: center;
+        margin: 30px 0;
+        width: 360px;
+        border: none;
+    }
+</style>
+
+<body>
+    <div id="wrap">
+        <form action="receive.html">
+            제목 <input type="text" name="" id="" >
+
+            <fieldset id="checkBoxFiled">
+                <legend>취미</legend>
+                요리 <input type="checkbox" name="hobby" id="" />
+                음악 <input type="checkbox" name="hobby" id="" />
+                여행 <input type="checkbox" name="hobby" id="" />
+            </fieldset>
+
+            <textarea rows="5" cols="50"></textarea>
+
+            <fieldset id="btnField">
+                <button type="submit">실행</button>
+                <button type="submit">초기화</button>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
