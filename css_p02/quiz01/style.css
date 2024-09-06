@@ -1,0 +1,47 @@
+#formWrapper {
+  width: fit-content;
+
+  #flexInputRow {
+    display: flex;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+
+  #flexRowColumn {
+    display: flex;
+    flex-direction: column;
+  }
+  #flexRowColumn > input {
+    height: 30px;
+    border: none;
+    width: 150px;
+    font-size: 9px;
+  }
+  #flexBtnRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 10px;
+    font-size: 9px;
+    color: #888;
+  }
+  #flexBtnRow > div {
+    display: inline-block;
+    border-right: 1px solid #888;
+    height: 9px;
+    margin: 0 8px;
+  }
+  #submitBtn {
+    background-color: rgb(255, 185, 80);
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px;
+  }
+}
