@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Quiz Drill-01</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="title">회원 가입</div>
+
+      <div id="inputRow">
+        <div id="label">이메일 <span> *</span></div>
+        <div id="inputWrapper">
+          <input type="text" />
+        </div>
+      </div>
+
+      <div id="inputRow">
+        <div id="label">아이디 <span> *</span></div>
+        <div id="inputWrapper">
+          <input type="text" />
+          <p>(영문 소문자/숫자 4-16자)</p>
+        </div>
+      </div>
+
+      <div id="inputRow">
+        <div id="label">비밀번호 <span> *</span></div>
+        <div id="inputWrapper">
+          <input type="password" />
+          <p>(영문 대소문자/숫자/특수문자 중 2가지 이상 조합. 10자-16자)</p>
+        </div>
+      </div>
+
+      <div id="inputRow">
+        <div id="label">비밀번호 확인<span> *</span></div>
+        <div id="inputWrapper">
+          <input type="password" />
+        </div>
+      </div>
+
+      <div id="inputRow">
+        <div id="label">이름<span> *</span></div>
+        <div id="inputWrapper">
+          <input type="text" />
+        </div>
+      </div>
+
+      <div id="inputRow">
+        <div id="label">휴대전화</div>
+        <div id="selectWrapper">
+          <select>
+            <option>010</option>
+            <option>010</option>
+            <option>010</option>
+          </select>
+          -
+          <input type="number" />
+          -
+          <input type="number" />
+        </div>
+      </div>
+
+      <div id="checkBoxWrapper">
+        <div id="mainCheck">
+          <input type="checkbox" />
+          <h4>전체동의</h4>
+          <span
+            >이용약관 및 개인정보수진 및 이용. 쇼핑정보 수신 (선택)에 모두
+            동의합니다.</span
+          >
+        </div>
+
+        <div id="subCheck">
+          <div>
+            <input type="checkbox" />
+            <span>[필수] 이용약관 동의</span>
+          </div>
+          <a href="">약관보기</a>
+        </div>
+
+        <div id="subCheck">
+          <div>
+            <input type="checkbox" />
+            <span>[필수] 개인정보 수집 및 이용 동의</span>
+          </div>
+          <a href="">약관보기</a>
+        </div>
+
+        <div id="flexRow">
+          <div id="subCheck">
+            <div>
+              <input type="checkbox" />
+              <span>[선택] SNS 수신을 동의하십니까?</span>
+            </div>
+          </div>
+          <div id="subCheck">
+            <div>
+              <input type="checkbox" />
+              <span>[선택] SNS 수신을 동의하십니까?</span>
+            </div>
+          </div>
+          <a href="">약관보기</a>
+        </div>
+      </div>
+
+      <div id="submitBtnWrapper">
+        <div id="submitBtn">회원가입</div>
+      </div>
+    </div>
+  </body>
+</html>
