@@ -1,0 +1,18 @@
+#wrapper {
+  width: 400px;
+  height: auto;
+  border: 3px solid grey;
+  margin: 10px;
+  padding: 20px;
+
+  > span {
+    font-size: 14px;
+    line-height: 200%;
+  }
+}
+
+#imgWrapper {
+  float: right;
+  border: 2px solid grey;
+  margin: 0 0 10px 10px;
+}
