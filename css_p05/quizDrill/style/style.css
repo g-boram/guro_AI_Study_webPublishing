@@ -1,0 +1,83 @@
+#wrapper {
+  width: 1200px;
+  border: 1px solid #555;
+  margin: 30px;
+}
+
+#header {
+  height: 120px;
+  background-color: #6b604c;
+}
+#nav {
+  padding: 15px 10px;
+  background-color: #e7d9bc;
+}
+#navRow {
+  display: flex;
+  height: 45px;
+  align-items: center;
+  background-color: #f8edd9;
+  padding-left: 5px;
+  > a {
+    width: max-content;
+    margin: 0 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #876b59;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  > :first-child {
+    background-color: #cbbda5;
+  }
+}
+#main {
+  background-color: #e7d9bc;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  > * {
+    /* background-color: #f8edd9; */
+    padding: 15px;
+    > h1 {
+      margin: 10px 0;
+    }
+    > span {
+      display: block;
+      line-height: 30px;
+    }
+  }
+}
+
+#lineH_none {
+  line-height: 10px;
+}
+#contant1 {
+  flex: 1;
+  background-image: url("../images/background.gif");
+}
+#contant2 {
+  width: 50%;
+  background-image: url("../images/background.gif");
+}
+#contant3 {
+  flex: 1;
+  background-image: url("../images/background.gif");
+}
+#contant3TextBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  > p {
+    margin: 0;
+  }
+}
+#footer {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/background.gif");
+}
