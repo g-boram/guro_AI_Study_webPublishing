@@ -1,0 +1,49 @@
+#wrap {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #888;
+}
+
+#navBox {
+  border-top: 1px solid #888;
+  border-bottom: 1px solid #888;
+}
+
+#mainMenu {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+
+  > li {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 40px;
+    margin: 10px;
+    background-color: rgb(65, 65, 102);
+    font-size: 12px;
+    color: #fff;
+
+    > ul {
+      position: absolute;
+      list-style-type: none;
+      top: 35px;
+      padding: 0;
+
+      > li {
+        width: 120px;
+        height: 40px;
+        padding: 0;
+        margin: 5px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(196, 120, 133);
+        font-size: 11px;
+        color: #fff;
+      }
+    }
+  }
+}
