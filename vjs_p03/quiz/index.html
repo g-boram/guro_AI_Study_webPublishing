@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h3>Quiz</h3>
+      <h2>센치미터</h2>
+
+      <div id="box">
+        <div style="display: flex">
+          <div style="width: 100%">1. 센치미터</div>
+          <input width="100%" type="number" id="value1" placeholder="ex.70" />
+        </div>
+        <div style="display: flex">
+          <span>2.</span>
+          <button style="width: 100%" onclick="test()">인치 변환</button>
+        </div>
+      </div>
+
+      <div id="resultBox">
+        <span>결과 :</span>
+        <span id="resText"></span>
+      </div>
+    </div>
+
+    <script>
+      function test() {
+        let inputData1 = document.querySelector("#value1").value;
+
+        let result = inputData1 / 2.54;
+        document.querySelector("#resText").innerHTML =
+          result.toFixed(1) + " inch";
+      }
+    </script>
+  </body>
 </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom (=문서객체모델, Document Object Model)</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <p>1 (document.querySelector("p").style.color = "#f80";)</p>
+      <span>2</span>
+      <p>document.querySelectorAll("p")[1].style.color = "blue";</p>
+      <p id="testP">document.querySelector("#testP").style.color = "pink";</p>
+      <div id="testDiv">
+        document.getElementById("testDiv").style.color = "grey";
+      </div>
+      <a>5</a>
+
+      <div class="testP">testP-1</div>
+      <div class="testP">testP-2</div>
+      <div class="testP">testP-3</div>
+    </div>
+    <script>
+      document.querySelector("p").style.color = "#f80";
+      document.querySelector("p").style.fontSize = "12px";
+
+      document.querySelectorAll("p")[1].style.color = "blue";
+      document.querySelectorAll("p")[1].style.fontSize = "12px";
+
+      document.querySelector("#testP").style.color = "pink";
+      document.querySelector("#testP").style.fontSize = "12px";
+
+      document.getElementById("testDiv").style.color = "grey";
+      document.getElementById("testDiv").style.fontSize = "12px";
+
+      const dom = document.getElementsByClassName("testP");
+      dom[2].style.color = "pink";
+      // dom[2].remove();
+      dom[2].innerHTML = "<u>가나다</u>";
+      dom[2].outerHTML = "<u>가나다</u>";
+
+      document.getElementsByClassName("testP")[0].style.color = "green";
+      document.getElementsByClassName("testP")[1].style.border =
+        "1px solid yellow";
+    </script>
+  </body>
+</html>
