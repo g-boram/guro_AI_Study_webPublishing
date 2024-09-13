@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrap">
+      <h1>데이터 읽기</h1>
+      <input type="text" id="data1" />
+      <br />
+      <!-- <fieldset id="data1">ABC</fieldset> -->
+      <button onclick="fnRead()" type="button">읽기 버튼</button>
+
+      <div id="res" style="height: 50px; border: 1px solid #000"></div>
+    </div>
+
+    <script>
+      function fnRead() {
+        // let inputData = document.querySelector("#data1").innerText;
+        let inputData = document.querySelector("#data1").value;
+        document.querySelector("#res").innerHTML = "<b>" + inputData + "</b>";
+      }
+    </script>
+  </body>
+</html>
