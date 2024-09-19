@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>p06-QuizDrill01</title>
+    <style>
+      #wrap {
+        margin: 0 auto;
+        width: 250px;
+        border: 3px solid #999;
+        border-radius: 10px;
+        padding: 20px;
+      }
+      #contentWrap {
+        display: flex;
+        width: 100%;
+      }
+      #flexRow {
+        display: flex;
+        height: 30px;
+        margin-top: 5px;
+
+        > label {
+          width: 70px;
+        }
+        > input {
+          width: 80%;
+        }
+      }
+      #flexRow:first-child {
+        margin-top: 0px;
+      }
+      #btnWrap {
+        width: 150px;
+        > button {
+          width: 100%;
+          height: 100%;
+          margin-left: 10px;
+          font-weight: bold;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <h1>배열 Quiz</h1>
+      <hr />
+      <h3>숫자 4개 입력</h3>
+
+      <div id="contentWrap">
+        <div>
+          <div id="flexRow">
+            <label for="num1">입력 1</label>
+            <input type="text" id="num1" />
+          </div>
+          <div id="flexRow">
+            <label for="num2">입력 2</label>
+            <input type="text" id="num2" />
+          </div>
+          <div id="flexRow">
+            <label for="num3">입력 3</label>
+            <input type="text" id="num3" />
+          </div>
+          <div id="flexRow">
+            <label for="num4">입력 4</label>
+            <input type="text" id="num4" />
+          </div>
+        </div>
+        <div id="btnWrap">
+          <button type="button" onclick="fnSubmit()">결과확인</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function fnSubmit() {
+        // 숫자로 변환해서 넣기 parseInt();
+        let num1 = parseInt(document.querySelector("#num1").value);
+        let num2 = parseInt(document.querySelector("#num2").value);
+        let num3 = parseInt(document.querySelector("#num3").value);
+        let num4 = parseInt(document.querySelector("#num4").value);
+
+        // 배열생성 [ ]
+        const numArr = [num1, num2, num3, num4];
+
+        // 합계 reduce((a,b) => a+b);
+        const totalNum = numArr.reduce((a, b) => a + b);
+
+        console.log("입력한 배열 : " + numArr.toString());
+        console.log("합계 : " + totalNum);
+        console.log("평균 : " + totalNum / numArr.length);
+        console.log(
+          "오름차순 정렬 : " +
+            numArr.sort(function (a, b) {
+              return a - b;
+            })
+        );
+        console.log(
+          "내림차순 정렬 : " +
+            numArr.reverse(function (a, b) {
+              return b - a;
+            })
+        );
+        console.log("End.");
+      }
+    </script>
+  </body>
+</html>

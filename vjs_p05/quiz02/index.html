@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let num = 1;
+      let total = 0;
+
+      console.log(`
+        숫자     누적값
+        ----------------
+        ${num}          ${(total += num)}
+        ${++num}          ${(total += num)}
+        ${++num}          ${(total += num)}
+        ${++num}          ${(total += num)}
+        ${++num}          ${(total += num)}
+
+        Print OK!
+      `);
+    </script>
+  </body>
+</html>

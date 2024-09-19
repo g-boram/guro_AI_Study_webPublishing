@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>정수와 불리언의 관계</h1>
+    입력 <input type="text" id="num" />
+    <button type="button">확인</button>
+
+    <script>
+      const dom = document.querySelector("button");
+      dom.addEventListener("click", function () {
+        // const num = parseInt(document.querySelector("#num").value);
+        let num = document.querySelector("#num").value;
+        num = parseInt(num);
+        // console.log(num);
+
+        if (num) {
+          console.log("true로 인식됨");
+        } else {
+          console.log("0은 false로 인식됨");
+        }
+      });
+    </script>
+  </body>
+</html>
