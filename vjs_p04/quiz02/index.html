@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>p04-Quiz01</title>
+    <style>
+      #wrap {
+        margin: 0 auto;
+        width: 280px;
+        border: 3px solid #999;
+        border-radius: 10px;
+        padding: 20px;
+      }
+      #row {
+        display: flex;
+        height: 30px;
+        margin-bottom: 10px;
+
+        > span {
+          width: 30%;
+        }
+        > select {
+          width: 200px;
+        }
+        > button {
+          width: 100%;
+        }
+      }
+      fieldset {
+        height: 50px;
+      }
+      #resultBox {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <h1>결제액 계산</h1>
+      <hr />
+
+      <div id="row">
+        <span>상품선택</span>
+        <select id="goods">
+          <option value="">-선택-</option>
+          <option value="과일">과일</option>
+          <option value="음료">음료</option>
+          <option value="빵">빵</option>
+        </select>
+      </div>
+
+      <div id="row">
+        <span>가격선택</span>
+        <select id="price">
+          <option value="">-선택-</option>
+          <option value="1500">1500</option>
+          <option value="2000">2000</option>
+          <option value="3000">3000</option>
+        </select>
+      </div>
+
+      <div id="row">
+        <span>수량</span>
+        <select id="cnt">
+          <option value="">-선택-</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+
+      <div id="row">
+        <button type="button" onclick="fnSubmit()">계산하기</button>
+      </div>
+      <hr />
+
+      <fieldset>
+        <legend>결제액</legend>
+        <div id="resultBox">
+          <span id="resultText"></span>
+        </div>
+      </fieldset>
+    </div>
+
+    <script>
+      function fnSubmit() {
+        let goodsData = document.querySelector("#goods").value;
+        let priceData = document.querySelector("#price").value;
+        let cntData = document.querySelector("#cnt").value;
+        document.querySelector(
+          "#resultText"
+        ).innerHTML = `${goodsData} ${cntData}개 ${priceData * cntData} 원`;
+        // goodsData + " " + cntData + "개 " + priceData * cntData + " 원";
+      }
+    </script>
+  </body>
+</html>
