@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let num = prompt("숫자를 입력하세요");
+      let result = [];
+
+      if (num == "" || num == null) {
+        alert("재실행 후 값을 입력해주세요.");
+      } else if (isNaN(num)) {
+        alert("숫자만 입력해주세요.");
+      } else if (2 > num || num > 100) {
+        alert("범위외의 숫자를 입력해주세요.");
+      }
+
+      for (let i = 0; i <= num + 1; i++) {
+        if (num % i == 0) result.push(i);
+      }
+
+      console.log(`
+        입력 값 ${num} 의 약수
+        ${result.toString()}
+        End.
+      `);
+    </script>
+  </body>
+</html>
