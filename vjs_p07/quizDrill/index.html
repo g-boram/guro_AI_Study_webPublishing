@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuizDrill</title>
+
+    <style>
+      #wrapper {
+        margin: 0 auto;
+        border: 2px solid grey;
+        border-radius: 10px;
+        padding: 10px;
+        width: 300px;
+      }
+      #row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 30px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        > input {
+          height: 20px;
+        }
+      }
+      #btnRow {
+        height: 40px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 30px;
+
+        :first-child {
+          background-color: rgb(219, 104, 123);
+        }
+        :last-child {
+          background-color: rgb(52, 146, 184);
+        }
+        > button {
+          width: 100px;
+          height: 25px;
+          border-radius: 5px;
+          border: none;
+          color: white;
+        }
+      }
+      #resultTextBox {
+        height: 80px;
+        border-radius: 10px;
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 14px;
+        line-height: 30px;
+        border: 1px solid grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="row">
+        <span>몸무게(kg)</span>
+        <input id="kg" />
+      </div>
+      <div id="row">
+        <span>키(cm)</span>
+        <input id="cm" />
+      </div>
+      <div id="btnRow">
+        <button onclick="fnBMI()">결과확인</button>
+        <button onclick="fnCSS()">CSS 적용</button>
+      </div>
+      <div id="resultTextBox"></div>
+    </div>
+
+    <script>
+      // BMI 구하기
+      function fnBMI() {
+        let kgData = document.querySelector("#kg").value;
+        let cmData = document.querySelector("#cm").value;
+        let bmi = (kgData / (cmData / 100) ** 2).toFixed(1);
+        let bmiString = "";
+
+        if (bmi >= 25.0) {
+          bmiString += "과체중 입니다.";
+        } else if (bmi >= 20.0 && bmi < 25.0) {
+          bmiString += "표준체중 입니다.";
+        } else {
+          bmiString += "저체중 입니다.";
+        }
+
+        document.querySelector("#resultTextBox").innerHTML = `
+          <div>당신의 BMI 지수는 <span id="bmi">${bmi}</span> 입니다.</div>
+          <div>${bmiString}</div>
+          `;
+      }
+
+      // CSS 적용
+      function fnCSS() {
+        document.getElementById("bmi").style.color = "red";
+        document.getElementById("bmi").style.fontWeight = "bold";
+        document.getElementById("bmi").style.fontSize = "16px";
+        document.getElementById("bmi").style.textDecorationLine = "underline";
+      }
+    </script>
+  </body>
+</html>

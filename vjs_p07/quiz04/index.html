@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz04</title>
+  </head>
+  <body>
+    <script>
+      const numArr = [];
+      const resultArr = [];
+      num1 = prompt("첫번째 숫자를 입력하세요");
+      num2 = prompt("두번째 숫자를 입력하세요");
+
+      numArr[0] = parseInt(num1);
+      numArr[1] = parseInt(num2);
+      numArr.sort(function (a, b) {
+        return a - b;
+      });
+
+      for (let i = numArr[0]; i <= numArr[1]; i++) {
+        if (i % 2 == 0) resultArr.push(i);
+      }
+
+      console.log(`
+        ${numArr[0]} 부터 ${numArr[1]} 사이의 짝수
+        ${resultArr.toString()}
+        End.
+      `);
+    </script>
+  </body>
+</html>
