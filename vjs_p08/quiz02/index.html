@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz 02</title>
+
+    <style>
+      #wrapper {
+        margin: 0 auto;
+        border: 2px solid grey;
+        border-radius: 10px;
+        padding: 10px;
+        width: 350px;
+      }
+      #row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 30px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        > input {
+          height: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="titleRow">
+        <h2>천단위 구분 쉼표 적용</h2>
+        <hr />
+      </div>
+      <div id="row">
+        <span>숫자 입력</span>
+        <input id="num" />
+        <button onclick="fnComma()">천단위 구분 쉼표 적용</button>
+      </div>
+    </div>
+
+    <script>
+      function fnComma() {
+        let numData = document.querySelector("#num").value;
+        const result = numData.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.querySelector("#num").value = result;
+      }
+    </script>
+  </body>
+</html>
