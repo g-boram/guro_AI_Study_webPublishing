@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrap">
+      <p>출력 결과1</p>
+      <hr />
+      <div id="timebox">
+        <div id="clock">
+          <p>오전 11: 48 : 35</p>
+        </div>
+
+        <div id="time" class="time">
+          <button type="button" onclick="fnTimestart()">start</button>
+          <button type="button" onclick="fnTimeStop">stop</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let now = new Date();
+      const dom = document.querySelector("#clock");
+      // dom.innerText = now.toLocaleTimeString();
+
+      function fnTimePlaying() {
+        // now = new Date();
+        // now = new Date();
+        // const now = new Date();
+
+        dom.innerText = now.toLocaleTimeString();
+        console.log("test");
+        console.log("now : " + now);
+      }
+      function fnTimestart() {
+        tm = setInterval(fnTimePlaying, 1000);
+      }
+      function fnTimeStop() {
+        clearInterval(tm);
+      }
+    </script>
+  </body>
+</html>

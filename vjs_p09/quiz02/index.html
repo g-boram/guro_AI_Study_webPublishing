@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #wrapper {
+        margin: 0 auto;
+        width: 300px;
+        height: 200px;
+        border: 1px solid gray;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        font-size: large;
+      }
+      #dateString {
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="dateString"></div>
+      <div id="timeString"></div>
+      <div id="btnBox">
+        <button id="startBtn" onclick="startTime()">Start</button>
+        <button id="stopBtn" onclick="stopTime()">Stop</button>
+      </div>
+    </div>
+    <script>
+      function startTime() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = (now.getMonth() + 1).toString().padStart(2, "0");
+        const day = now.getDate().toString().padStart(2, "0");
+        const hours = now.getHours();
+        const minutes = now.getMinutes().toString().padStart(2, "0");
+        const seconds = now.getSeconds().toString().padStart(2, "0");
+        const dateString = `${year}-${month}-${day}`;
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        const fullString = `${dateString} ${timeString}`;
+        document.getElementById("dateString").textContent = dateString;
+        document.getElementById("timeString").textContent = timeString;
+
+        // 매 초마다 시계 업데이트
+      }
+      const timer = setInterval(startTime, 1000);
+
+      function stopTime() {
+        clearInterval(timer);
+      }
+      // 페이지 로드 시에도 시계 업데이트
+      // updateClock();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Drill</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <h2>회원가입</h2>
+      <div id="titleLine"></div>
+
+      <form>
+        <div id="flexRow">
+          <div id="label"><span>*</span>아이디</div>
+          <input type="text" id="id" maxlength="20" />
+          <div id="chkBtn" onclick="openPopup()">중복확인</div>
+        </div>
+        <div id="flexRow">
+          <div id="label"><span>*</span>비밀번호</div>
+          <input type="text" id="pw" maxlength="20" />
+        </div>
+        <div id="flexRow">
+          <div id="label"><span>*</span>비밀번호 확인</div>
+          <input type="text" id="rPw" maxlength="20" onblur="matchingPW()" />
+          <span id="pwResult"></span>
+        </div>
+        <div id="flexRow">
+          <div id="label"><span>*</span>이메일</div>
+          <input type="text" id="email" />
+          @
+          <input type="text" id="emailUrl" />
+          <select id="urlSelect" onchange="inputUrl()">
+            <option name="urlSelect" value="">직접입력</option>
+            <option name="urlSelect" value="naver.com">naver.com</option>
+            <option name="urlSelect" value="daum.net">daum.net</option>
+          </select>
+        </div>
+
+        <div id="bottomBtnRow">
+          <div id="bottomBtn">가입취소</div>
+          <div id="bottomBtn" onclick="regTest()">회원가입</div>
+        </div>
+      </form>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
+
+<!-- onclick에 바로적용 -->
+<!-- <button onclick="window.open('https://aortm2.tistory.com/','_blank','width=700, height=600, top=50, left=50, scrollbars=yes')">onclick에 바로 적용</button> -->
+
+<!-- 함수로 적용 -->
+<!-- const openPopup = () => {
+  // 팝업을 띄울 페이지 URL
+  var popupURL = "https://aortm2.tistory.com/";
+  // 팝업 창의 속성
+  var option = "width=600,height=400,scrollbars=yes";
+  // 팝업 열기
+  window.open(popupURL, "Popup", option);
+}  -->
