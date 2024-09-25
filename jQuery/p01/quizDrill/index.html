@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuizDrill</title>
+    <style>
+      #wrapper {
+        border: 2px solid blue;
+        width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      #boxWrapper {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid yellow;
+      }
+      #box {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+      }
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        // fadeToggleBtn
+        $("#fadeToggleBtn").click(function () {
+          $("#box").fadeToggle(3000);
+        });
+        // slideDownBtn
+        $("#slideDownBtn").click(function () {
+          $("#box").slideDown(3000);
+        });
+        // toggleBtn
+        $("#toggleBtn").click(function () {
+          $("#box").toggle(3000);
+        });
+        // animateBtn
+        $("#animateBtn").click(function () {
+          $("#box").animate({ left: "100px" }, 3000);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>jQuery Effect</h1>
+      <hr />
+      <div id="btnBox">
+        <button id="fadeToggleBtn">Fade Toggle</button>
+        <button id="slideDownBtn">Slide Toggle</button>
+        <button id="toggleBtn">Toggle</button>
+        <button id="animateBtn">Animate</button>
+      </div>
+      <hr />
+      <div id="boxWrapper">
+        <div id="box">Click !</div>
+      </div>
+    </div>
+  </body>
+</html>

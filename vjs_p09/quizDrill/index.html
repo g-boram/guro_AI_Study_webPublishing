@@ -11,11 +11,12 @@
       <h2>회원가입</h2>
       <div id="titleLine"></div>
 
-      <form>
+      <form onsubmit="">
         <div id="flexRow">
           <div id="label"><span>*</span>아이디</div>
           <input type="text" id="id" maxlength="20" />
           <div id="chkBtn" onclick="openPopup()">중복확인</div>
+          <button type="submit">testSubmit</button>
         </div>
         <div id="flexRow">
           <div id="label"><span>*</span>비밀번호</div>
@@ -48,16 +49,3 @@
     <script src="./script.js"></script>
   </body>
 </html>
-
-<!-- onclick에 바로적용 -->
-<!-- <button onclick="window.open('https://aortm2.tistory.com/','_blank','width=700, height=600, top=50, left=50, scrollbars=yes')">onclick에 바로 적용</button> -->
-
-<!-- 함수로 적용 -->
-<!-- const openPopup = () => {
-  // 팝업을 띄울 페이지 URL
-  var popupURL = "https://aortm2.tistory.com/";
-  // 팝업 창의 속성
-  var option = "width=600,height=400,scrollbars=yes";
-  // 팝업 열기
-  window.open(popupURL, "Popup", option);
-}  -->

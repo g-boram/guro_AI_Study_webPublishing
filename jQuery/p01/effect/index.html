@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Effect</title>
+    <script
+      src="./script/jquery-3.7.1.slim.min.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div>
+      <h1>jQuery Effect</h1>
+      <hr />
+      <button>페이드 효과</button>
+    </div>
+    <script
+      src="./script/jquery-3.7.1.slim.min.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="script/script.js">
+      $(function () {
+        $("button").css({
+          "font-size": "24px",
+          cursor: "pointer",
+          color: "royalblue",
+        });
+
+        $("button").click(function () {
+          console.log("click");
+          alert("click");
+          $("h1").css({ color: "green" });
+        });
+      });
+    </script>
+  </body>
+</html>

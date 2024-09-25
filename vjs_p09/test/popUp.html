@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>자식-PopUp</h1>
+      <input type="text" id="subData" onfocus="setData()" />
+      <button onclick="window.close()">닫기</button>
+    </div>
+    <script>
+      document.getElementById("subData").focus();
+
+      function setData() {
+        const test = window.HTMLDocument("./index.html");
+        opener.document();
+        console.log("test");
+      }
+    </script>
+  </body>
+</html>

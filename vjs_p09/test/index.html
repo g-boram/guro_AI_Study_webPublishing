@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>부모-MainPage</h1>
+      <input type="text" id="mainData" />
+      <button onclick="openPopup()">팝업창 띄우기</button>
+      <button onclick="sendData()">메인 데이터 전송</button>
+      <button onclick="getChildText()">자식 데이터 가져오기</button>
+    </div>
+
+    <script>
+      // 방법1: 한번에 출력하지 않고 열고나서 접근 가능하게되어 왔다갔다 전송
+      // openWin 함수에 팝업창을 통째로 담아두었기에 부모창에선 자식창의 존재를 알수있다.
+      let openWin;
+      // 팝업 열기
+      function openPopup() {
+        const mainData = document.getElementById("mainData").value;
+        openWin = window.open("./popUp.html", "popUp", "width=570, height=350, resizable = no, scrollbars = no");
+        // openWin.document.getElementById("subData").value = mainData;
+      }
+      // 팝업에 데이터 전달하기
+      function sendData() {
+        openWin.document.getElementById("subData").value = document.getElementById("mainData").value;
+      }
+      // 팝업에 있는 글씨 가져오기
+      function getChildText() {
+        document.getElementById("mainData").value = openWin.document.getElementById("subData").value;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 5px;
+        padding: 5px;
+      }
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        $("p").css("border", "4px solid red");
+        $("#gnb").css("border", "4px solid orange");
+        $(".logo").css("border", "4px solid yellow");
+        $("#gnb > ul > li").css("border", "4px solid green");
+        $("#gnb > ul > li > ul > li").css("border", "4px solid black");
+        $("#gnb ul").css("border", "4px solid blue");
+        $("#visual + #content").css("border", "4px solid navy");
+        $("#visual ~ #footer").css("border", "4px solid purple");
+        $("div.util").css("border", "4px solid pink");
+        $(".left, .right, #banner").css("border", "4px solid gray");
+      });
+    </script>
+  </head>
+  <body>
+    <header id="header">
+      <div class="logo">$(".logo").css("border", "4px solid yellow");</div>
+      <div class="util">$("div.util").css("border", "4px solid pink");</div>
+      <nav id="gnb">
+        $("#gnb").css("border", "4px solid orange");
+        <ul>
+          $("#gnb ul").css("border", "4px solid blue");
+          <li>
+            $("#gnb > ul > li").css("border", "4px solid green");
+            <ul>
+              $("#gnb ul").css("border", "4px solid blue");
+              <li>$("#gnb > ul > li > ul > li").css("border", "4px solid black");</li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div id="visual">
+        <p>$("p").css("border", "4px solid red");</p>
+      </div>
+      <div id="content">
+        $("#visual + #content").css("border", "4px solid navy");
+        <div class="left">$(".left, .right, #banner").css("border", "4px solid gray");</div>
+        <div class="right">
+          $(".left, .right, #banner").css("border", "4px solid gray");
+          <div class="util">$("div.util").css("border", "4px solid pink");</div>
+        </div>
+      </div>
+      <div id="banner">$(".left, .right, #banner").css("border", "4px solid gray");</div>
+      <footer id="footer">$("#visual ~ #footer").css("border", "4px solid purple");</footer>
+    </header>
+  </body>
+</html>

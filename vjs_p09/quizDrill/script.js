@@ -1,5 +1,10 @@
-// 팝업 띄우기 함수
+// const testValue = "";
+
+// let testValue = "";
+// 팝업 띄우기 함수 -----------------------------------------------------
 const openPopup = () => {
+  const testValue = document.querySelector("#id").value;
+
   let scrWid = screen.width;
   let scrHei = screen.height;
   let popWid = 400;
@@ -13,13 +18,23 @@ const openPopup = () => {
   option += "height=" + popHei + "px, ";
   option += "left=" + lefPos + "px, ";
   option += "height=" + topPos + "px, ";
-  // option += "scrollbars=yes";
+
+  console.log("testValue", testValue);
 
   // 팝업 열기
-  window.open(popupURL, "Popup", option);
-};
+  const openWin = window.open(popupURL, "Popup", option);
+  openWin.document.getElementById("test").value = testValue;
 
-// 비밀번호 일치, 불일치
+  // testFn(testValue);
+};
+// const testFn = (testValue) => {
+//   document.getElementById("test").value = testValue;
+// };
+// testFn();
+
+const testSubmit = () => {};
+
+// 비밀번호 일치, 불일치 ----------------------------------------------------
 const matchingPW = () => {
   const pw = document.querySelector("#pw").value;
   const rPw = document.querySelector("#rPw").value;
@@ -31,6 +46,7 @@ const matchingPW = () => {
   }
 };
 
+// select 선택시 입력값 넣기 ------------------------------------------------
 const inputUrl = () => {
   let sel = document.getElementById("urlSelect");
   let value = sel.value;
@@ -38,6 +54,7 @@ const inputUrl = () => {
   document.getElementById("emailUrl").value = value;
 };
 
+// 정규표현식 적용 ----------------------------------------------------------
 const regTest = () => {
   const id = document.getElementById("id").value;
   const pw = document.getElementById("pw").value;
@@ -57,7 +74,12 @@ const regTest = () => {
   console.log("checkId : " + checkId);
   console.log("checkPw : " + checkPw);
   console.log("checkEmail : " + checkEmail);
+
+  // const data = chkData.trim();
+  // data.length < 6
+  // 분기 처리 하기 귀찮아서 안함.
 };
 
-// const data = chkData.trim();
-// data.length < 6
+function closePopUp() {
+  window.close();
+}
