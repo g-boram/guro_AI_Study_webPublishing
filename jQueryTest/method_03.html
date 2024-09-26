@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        var city = ["서울", "대구", "대전", "부산"];
+
+        $.map(city, function (value, index) {
+          console.log(value); // 서울, 대전, 대구, 부산
+          console.log(index); // 0 1 2 3
+        });
+        var newCity = $.map(city, function (value, index) {
+          if (index < 2) {
+            return value;
+          }
+        });
+        console.log(newCity.toString());
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

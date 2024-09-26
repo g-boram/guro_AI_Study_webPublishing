@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #wrapper {
+        border: 1px solid black;
+        width: 500px;
+        height: 300px;
+        padding: 10px;
+      }
+      #btnRow {
+        display: flex;
+        padding: 0 10px;
+        position: relative;
+        > button {
+          width: 100px;
+          height: 40px;
+          font-size: 18px;
+          border-bottom: none;
+          background-color: #fff;
+          z-index: 1;
+        }
+      }
+      #contentBox {
+        width: 500px;
+        height: 200px;
+        position: absolute;
+        top: 57px;
+        border: 1px solid black;
+      }
+      #content1 {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #fff;
+
+        > #flexRow {
+          display: flex;
+          justify-content: space-between;
+
+          height: 25%;
+        }
+      }
+      #content2 {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: absolute;
+        background-color: #fff;
+        /* display: none; */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="btnRow">
+        <button id="btn1">공지사항</button>
+        <button id="btn2">갤러리</button>
+      </div>
+
+      <div id="contentBox">
+        <div id="content1">
+          <div id="flexRow">
+            <span>3월 재입고 품목을 알려드립니다.</span>
+            <span>2020.03.14</span>
+          </div>
+          <div id="flexRow">
+            <span>3월 재입고 품목을 알려드립니다.</span>
+            <span>2020.03.14</span>
+          </div>
+          <div id="flexRow">
+            <span>3월 재입고 품목을 알려드립니다.</span>
+            <span>2020.03.14</span>
+          </div>
+          <div id="flexRow">
+            <span>3월 재입고 품목을 알려드립니다.</span>
+            <span>2020.03.14</span>
+          </div>
+        </div>
+        <div id="content2">
+          <div id="imgBox">
+            <img src="./images/img1.jpg" alt="1" />
+          </div>
+          <div id="imgBox">
+            <img src="./images/img2.jpg" alt="2" />
+          </div>
+          <div id="imgBox">
+            <img src="./images/img3.jpg" alt="3" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        // 공지사항 클릭
+        $("#btn1").click(function () {
+          $("#content2").css({ display: "none" });
+          $("#content1").css({ display: "block" });
+          $("#btn2").css({ backgroundColor: "lightGrey" });
+          $("#btn1").css({ backgroundColor: "white" });
+        });
+        // 갤러리 클릭
+        $("#btn2").click(function () {
+          $("#content1").css({ display: "none" });
+          $("#content2").css({ display: "flex" });
+          $("#btn1").css({ backgroundColor: "lightGrey" });
+          $("#btn2").css({ backgroundColor: "white" });
+        });
+      });
+    </script>
+  </body>
+</html>
