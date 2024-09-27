@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #wrapper {
+        width: 500px;
+        padding: 10px;
+        border: 2px solid grey;
+      }
+      #title {
+        height: 30px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid grey;
+      }
+      #containerWrapper {
+        position: relative;
+        display: flex;
+        width: 480px;
+        justify-content: center;
+      }
+      #container {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        width: 300px;
+        height: 200px;
+      }
+      button {
+        background-color: #fff;
+        position: absolute;
+        /* width: 100%; */
+        font-size: 30px;
+        border: none;
+        color: grey;
+      }
+      #left-arrow {
+        left: 0;
+      }
+      #right-arrow {
+        right: 0;
+      }
+      .box {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        background-color: lightblue;
+        margin: 5px;
+        text-align: center;
+        line-height: 80px;
+        font-size: 20px;
+        transition: all 0.5s ease; /* 애니메이션을 부드럽게 */
+      }
+      .box:nth-child(1) {
+        left: 0px;
+      }
+      .box:nth-child(2) {
+        left: 80px;
+      }
+      .box:nth-child(3) {
+        left: 180px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="title">요소 이동</div>
+      <div id="containerWrapper">
+        <button id="left-arrow">&lt;</button>
+        <div id="container">
+          <div class="box">1번</div>
+          <div class="box">2번</div>
+          <div class="box">3번</div>
+        </div>
+        <button id="right-arrow">&gt;</button>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        function updatePositions() {
+          $("#container .box").each(function (index) {
+            $(this).animate({ left: index * 100 + "px" }, 500); // 각 박스의 위치 업데이트
+          });
+        }
+
+        // 왼쪽 이동
+        $("#left-arrow").click(function () {
+          var firstBox = $("#container .box").first();
+          firstBox.animate({ left: "+=300px" }, 400, function () {
+            $("#container").append(firstBox); // 첫 번째 박스를 맨 뒤로 이동
+            updatePositions(); // 위치 업데이트
+          });
+        });
+
+        // 오른쪽 이동
+        $("#right-arrow").click(function () {
+          var lastBox = $("#container .box").last();
+          lastBox.animate({ left: "-=300px" }, 400, function () {
+            $("#container").prepend(lastBox); // 마지막 박스를 맨 앞으로 이동
+            updatePositions(); // 위치 업데이트
+          });
+        });
+
+        // 페이지 로딩 시 위치 업데이트
+        updatePositions();
+      });
+    </script>
+  </body>
+</html>

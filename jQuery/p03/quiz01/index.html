@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #wrapper {
+        width: 400px;
+        height: 200px;
+        border: 1px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>체크박스 선택해제</h1>
+      <form>
+        <fieldset>
+          <legend>취미</legend>
+          <label>여행</label>
+          <input type="checkbox" class="checkItem" />
+
+          <label>음악</label>
+          <input type="checkbox" class="checkItem" />
+
+          <label>게임</label>
+          <input type="checkbox" class="checkItem" />
+        </fieldset>
+      </form>
+      <button id="allCheckBtn">전체 체크</button>
+      <button id="notAllCheckBtn">전체 해제</button>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        $("#allCheckBtn").click(function () {
+          $(".checkItem").prop("checked", true);
+        });
+        $("#notAllCheckBtn").click(function () {
+          $(".checkItem").prop("checked", false);
+        });
+      });
+    </script>
+  </body>
+</html>

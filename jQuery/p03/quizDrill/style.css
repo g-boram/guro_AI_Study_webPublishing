@@ -1,0 +1,39 @@
+#wrapper {
+  margin: 0 auto;
+  width: 800px;
+  border: 1px solid lightblue;
+  border-top: 5px solid lightblue;
+  border-bottom: 5px solid lightblue;
+  padding: 20px;
+}
+
+#agreeTitle {
+  height: 30px;
+  padding-left: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+#flexRow {
+  height: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 300;
+  padding-left: 15px;
+}
+#bottomBtnRow {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  > button {
+    background-color: rgb(35, 183, 232);
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    cursor: pointer;
+  }
+}
