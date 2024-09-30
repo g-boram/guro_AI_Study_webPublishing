@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #wrapper {
+        border: 1px solid grey;
+        padding: 10px;
+      }
+      #areaWrapper {
+        > textarea {
+          width: 400px;
+          height: 80px;
+        }
+      }
+      #cntWrapper {
+        > #cnt {
+          width: 50px;
+          display: inline-block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h3>글자수 제한</h3>
+      <hr />
+      <div id="areaWrapper">
+        <textarea id="textBox" maxlength="100" placeholder="댓글 입력"></textarea>
+      </div>
+      <div id="cntWrapper">
+        <span class="textCount"></span>
+        <span> / </span>
+        <span>100자</span>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

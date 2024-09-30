@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #wrapper {
+        border: 1px solid grey;
+        padding: 10px;
+      }
+      #navBarRow {
+        display: flex;
+        border: 1px solid grey;
+      }
+      .mainBtn {
+        width: 100px;
+        padding: 10px;
+        position: relative;
+      }
+      .mainBtn:hover {
+        color: white;
+      }
+      .subBtnBox {
+        position: absolute;
+        width: 100px;
+        padding: 5px;
+        top: 40px;
+        left: 0;
+        border: 1px solid grey;
+        > .subBtn {
+          padding: 10px;
+          height: 30px;
+          color: black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h3>GNB 메뉴 Drop down (드롭다운)</h3>
+      <div id="navBarRow">
+        <div class="mainBtn">
+          메인메뉴 1
+          <div class="subBtnBox">
+            <div class="subBtn">서브메뉴 1</div>
+            <div class="subBtn">서브메뉴 2</div>
+            <div class="subBtn">서브메뉴 3</div>
+            <div class="subBtn">서브메뉴 4</div>
+          </div>
+        </div>
+        <div class="mainBtn">
+          메인메뉴 2
+          <div class="subBtnBox">
+            <div class="subBtn">서브메뉴 1</div>
+            <div class="subBtn">서브메뉴 2</div>
+            <div class="subBtn">서브메뉴 3</div>
+            <div class="subBtn">서브메뉴 4</div>
+          </div>
+        </div>
+        <div class="mainBtn">
+          메인메뉴 3
+          <div class="subBtnBox">
+            <div class="subBtn">서브메뉴 1</div>
+            <div class="subBtn">서브메뉴 2</div>
+            <div class="subBtn">서브메뉴 3</div>
+            <div class="subBtn">서브메뉴 4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
