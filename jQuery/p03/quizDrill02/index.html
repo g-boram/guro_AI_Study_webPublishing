@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Drill 02</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <h2>회원가입</h2>
+      <div id="titleLine"></div>
+
+      <form onsubmit="">
+        <div id="flexRow">
+          <div id="label"><span>*</span>아이디</div>
+          <input type="text" id="id" maxlength="20" required />
+          <div id="chkBtn" onclick="openPopup()">중복확인</div>
+          <button type="submit">testSubmit</button>
+        </div>
+        <div id="flexRow">
+          <div id="label"><span>*</span>비밀번호</div>
+          <input type="text" id="pw" maxlength="20" required />
+        </div>
+        <div id="flexRow">
+          <div id="label"><span>*</span>비밀번호 확인</div>
+          <input type="text" id="rPw" maxlength="20" onblur="matchingPW()" required />
+          <span id="pwResult"></span>
+        </div>
+        <div id="flexRow">
+          <div id="label"><span>*</span>이메일</div>
+          <input type="text" id="email" required />
+          @
+          <input type="text" id="emailUrl" required />
+          <select id="urlSelect" onchange="inputUrl()">
+            <option name="urlSelect" value="">직접입력</option>
+            <option name="urlSelect" value="naver.com">naver.com</option>
+            <option name="urlSelect" value="daum.net">daum.net</option>
+          </select>
+        </div>
+
+        <div id="bottomBtnRow">
+          <div id="bottomBtn">가입취소</div>
+          <div id="bottomBtn" onclick="regTest()">회원가입</div>
+        </div>
+      </form>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

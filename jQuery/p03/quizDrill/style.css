@@ -30,7 +30,7 @@
   align-items: center;
   margin-bottom: 30px;
   > button {
-    background-color: rgb(35, 183, 232);
+    background-color: grey;
     color: #fff;
     border: none;
     padding: 10px 30px;
