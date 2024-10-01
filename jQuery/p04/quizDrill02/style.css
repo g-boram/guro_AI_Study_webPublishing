@@ -1,0 +1,39 @@
+#wrapper {
+  border: 1px solid grey;
+  padding: 10px;
+  margin: 0 auto;
+  width: min-content;
+}
+#slideWrapper {
+  width: 800px; /* 슬라이더 너비 */
+  overflow: hidden; /* 가시 영역을 벗어나는 부분은 숨김 */
+  position: relative;
+}
+#slide {
+  width: calc(800px * 4); /* 이미지 개수만큼 너비를 설정 */
+  display: flex; /* 이미지들을 한 줄로 나열 */
+  transition: all 1s ease; /* 슬라이드 이동 시 부드럽게 전환 */
+}
+
+#slide #imgWrapper {
+  width: 800px; /* 각 이미지의 너비 */
+  position: relative;
+}
+
+#textBox {
+  position: absolute;
+  z-index: 1;
+  top: 30%;
+  left: 40%;
+  width: 200px;
+  height: 100px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: blue;
+  font-weight: bold;
+  background-color: aliceblue;
+  opacity: 0.8;
+}

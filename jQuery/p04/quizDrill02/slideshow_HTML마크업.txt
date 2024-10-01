@@ -1,0 +1,29 @@
+<body>
+    <div id="wrap">
+
+        <h1>슬라이드쇼 RTL</h1>
+
+        <div id="slideshowArea">
+            <div id="slideFrame">
+                <a href="#">
+                    <img src="images/mountains.jpg"
+                            alt="이미지0" width="1000">
+                    <span class="msg">텍스트1</span>
+                </a> <!-- 인덱스 0번 -->
+                <a href="#">
+                    <img src="images/snow.jpg"
+                            alt="이미지1" width="1000">
+                    <span class="msg">텍스트2</span>
+                </a> <!-- 인덱스 1번 -->
+                <a href="#">
+                    <img src="images/lights.jpg"
+                            alt="이미지2" width="1000">
+                    <span class="msg">텍스트3</span>
+                </a> <!-- 인덱스 2번 -->
+            </div>
+        </div>
+        <!-- div#slideshowArea -->
+
+    </div>
+    <!-- div#wrap -->
+</body>
