@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="styleSheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <!-- header -->
+      <div id="a_header">
+        <div id="logo">
+          <img src="./images/logo_header.png" alt="logo" />
+        </div>
+        <div id="navbar">
+          <div class="mainBtn">
+            소장처별
+            <div class="subBtnBox">
+              <div class="subBtn">한국</div>
+              <div class="subBtn">프랑스</div>
+              <div class="subBtn">이탈리아</div>
+              <div class="subBtn">독일</div>
+            </div>
+          </div>
+          <div class="mainBtn">
+            장르별
+            <div class="subBtnBox">
+              <div class="subBtn">회화</div>
+              <div class="subBtn">판화</div>
+              <div class="subBtn">공예/고대유물</div>
+              <div class="subBtn">그외</div>
+            </div>
+          </div>
+          <div class="mainBtn">
+            테마별
+            <div class="subBtnBox">
+              <div class="subBtn">초상화/인물</div>
+              <div class="subBtn">종교</div>
+              <div class="subBtn">신화/문학</div>
+              <div class="subBtn">일상/스포츠</div>
+            </div>
+          </div>
+          <div class="mainBtn">
+            시대별
+            <div class="subBtnBox">
+              <div class="subBtn">1900년 이전</div>
+              <div class="subBtn">1000년대</div>
+              <div class="subBtn">현대</div>
+              <div class="subBtn">그 외</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- slide -->
+      <div id="b_slide">
+        <div id="slideWrapper">
+          <div id="slide">
+            <div id="imgWrapper">
+              <img src="./images/slideShow_01.jpg" alt="Image 1" />
+              <div id="textBox">
+                <span>세계의 거장과 함께한 전시회</span>
+              </div>
+            </div>
+            <div id="imgWrapper">
+              <img src="./images/slideShow_02.jpg" alt="Image 2" />
+              <div id="textBox">
+                <span>야외 조형물 전시장도 오픈합니다.</span>
+              </div>
+            </div>
+            <div id="imgWrapper">
+              <img src="./images/slideShow_03.jpg" alt="Image 3" />
+              <div id="textBox">
+                <span>명화와 함께 떠나는 휴가</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="c_content">
+        <div id="contentWrapper">
+          <div id="title">공지사항</div>
+          <div id="contentBox">
+            <div class="flexRow">
+              <div>2019 시민큐레이터 프로젝트</div>
+              <div>2019/05/07</div>
+            </div>
+            <div class="flexRow">
+              <div>SeMA신소장품 멀티-엑세스 4</div>
+              <div>2019/05/03</div>
+            </div>
+            <div class="flexRow">
+              <div>월 북서울미술관 문화행사 일정</div>
+              <div>2019/02/22</div>
+            </div>
+          </div>
+        </div>
+        <div id="contentWrapper">
+          <div id="title">갤러리</div>
+          <div id="contentBox">
+            <div id="imgFlexRow">
+              <img class="img" src="./images/gallery_01.jpg" alt="g_img1" />
+              <img class="img" src="./images/gallery_02.jpg" alt="g_img2" />
+              <img class="img" src="./images/gallery_03.jpg" alt="g_img3" />
+            </div>
+          </div>
+        </div>
+        <div id="bannerWrapper">
+          <img src="./images/banner.png" alt="banner" />
+        </div>
+      </div>
+      <div id="d_footer">
+        <div id="f_left">
+          <img src="./images/logo_Footer.png" alt="f_logo" />
+        </div>
+        <div id="f_center">
+          <div>04515 서울특별시 중구 덕수궁길 61 (서소문동) (02) 2124-8800</div>
+          <div>©2019 Milwaukee Art Museum 700 N. Art Museum Drive Milwaukee, WI 53202</div>
+        </div>
+        <div id="f_right">
+          <img src="./images/ico_fb.png" alt="f_sns1" />
+          <img src="./images/ico_in.png" alt="f_sns2" />
+          <img src="./images/ico_blog.png" alt="f_sns3" />
+        </div>
+      </div>
+
+      <div id="modalContainer" class="hidden">
+        <div id="modalContent"></div>
+        <div class="mBtnRow"><button class="modalCloseBtn">닫기</button></div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

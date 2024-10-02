@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div#wrap {
+      margin: 0 auto;
+      /* border: 2px solid #000; */
+      /* width: 1200px; */
+      height: 700px;
+
+      > .topLogo {
+        background-color: #caac70;
+        height: 100px;
+        display: flex;
+      }
+    }
+    .topLogo {
+      width: 100%;
+    }
+    .topLogo > img {
+      height: 100px;
+    }
+    .menuM {
+      /* border: 1px solid #000;
+        width: 100px; */
+    }
+    .slide {
+      overflow: hidden;
+      border: 1px solid #f80;
+      margin: 0 8px;
+
+      > .slideImg {
+        display: flex;
+        height: 300px;
+      }
+    }
+    .imgText {
+      background-color: #fff;
+      position: absolute;
+      line-height: 80px;
+      opacity: 0.7;
+      font-weight: bold;
+      color: rgb(44, 179, 233);
+      border-radius: 5px;
+      font-size: 23px;
+      width: 350px;
+      height: 80px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .notice {
+      justify-content: space-between;
+    }
+    .butt {
+      border: 1px solid #d3d3d3;
+      width: 90px;
+      height: 40px;
+      position: relative;
+      top: 5px;
+      background-color: #fff;
+      left: 5px;
+      font-size: 17px;
+      line-height: 6px;
+    }
+    .butt2 {
+      border: 1px solid #d3d3d3;
+      width: 90px;
+      height: 40px;
+      text-align: center;
+      position: relative;
+      background-color: #fff;
+      top: 5px;
+      left: 5px;
+      font-size: 18px;
+      line-height: 38px;
+    }
+    .gallery {
+      margin: 0 10px;
+    }
+    .bot {
+      display: flex;
+      height: 200px;
+      justify-content: center;
+      width: 1200px;
+      margin-left: 30px;
+
+      > * {
+        width: 400px;
+      }
+
+      > .banner img {
+        height: 200px;
+      }
+    }
+    .slideImg {
+      position: relative;
+    }
+    .galleryImg {
+      border: 2px solid #d3d3d3;
+      padding: 5px;
+    }
+    .noticeText {
+      border: 1px solid #d3d3d3;
+    }
+    .main {
+      text-align: center;
+      width: 1200px;
+      margin: 0 auto;
+    }
+    .botLogo {
+      background-color: #caac70;
+      height: 100px;
+      > img {
+        height: 100px;
+      }
+    }
+    .between {
+      display: flex;
+      justify-content: space-between;
+    }
+    div.gnb {
+      display: flex;
+      text-align: center;
+      /* margin-top: -70px; */
+    }
+    .dropMenu {
+      position: relative;
+    }
+    .menuM {
+      border: 1px solid #000;
+      padding: 10px;
+      cursor: pointer;
+      width: 100px;
+      background-color: #dfc89a;
+    }
+    .menu {
+      border: 1px solid #000;
+    }
+    .submenu {
+      display: none;
+      background-color: #fff;
+      border: 1px solid #000;
+    }
+    .dropMenu:hover .submenu {
+      display: block;
+      z-index: 10;
+    }
+  </style>
+  <body>
+    <div id="wrap">
+      <div class="topLogo">
+        <img src="images/logo_header.png" alt="" />
+        <div class="gnb">
+          <div class="dropMenu">
+            <div class="menuM">소장처별</div>
+            <div class="submenu">
+              <div class="menu">한국</div>
+              <div class="menu">프랑스</div>
+              <div class="menu">이탈리아</div>
+              <div class="menu">독일</div>
+            </div>
+          </div>
+          <div class="dropMenu">
+            <div class="menuM">장르별</div>
+            <div class="submenu">
+              <div class="menu">회화</div>
+              <div class="menu">판화</div>
+              <div class="menu">공예/고대유물</div>
+              <div class="menu">그 외</div>
+            </div>
+          </div>
+          <div class="dropMenu">
+            <div class="menuM">테마별</div>
+            <div class="submenu">
+              <div class="menu">초상화/인물</div>
+              <div class="menu">종교</div>
+              <div class="menu">신화/문화</div>
+              <div class="menu">일상/스포츠</div>
+            </div>
+          </div>
+          <div class="dropMenu">
+            <div class="menuM">시대별</div>
+            <div class="submenu">
+              <div class="menu">1900년 이전</div>
+              <div class="menu">1900년대</div>
+              <div class="menu">현대</div>
+              <div class="menu">그 외</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="main">
+        <div class="slide">
+          <div class="slideImg">
+            <div class="imgText">세계의 거장과 함께한 전시회</div>
+            <img src="images/slideShow_01.jpg" alt="1" />
+          </div>
+        </div>
+        <!--  -->
+        <div class="bot">
+          <div class="notice">
+            <div class="butt">
+              <p>공지사항</p>
+            </div>
+            <div class="noticeText">
+              <div class="between">
+                <p>2019 시민큐레이터 프로젝트</p>
+                <p>2019/05/07</p>
+              </div>
+              <div class="between">
+                <p>2019 시민큐레이터 프로젝트</p>
+                <p>2019/05/03</p>
+              </div>
+              <div class="between">
+                <p>2019 시민큐레이터 프로젝트</p>
+                <p>2019/02/22</p>
+              </div>
+            </div>
+          </div>
+          <div class="gallery">
+            <div class="butt2">갤러리</div>
+            <div class="galleryImg">
+              <img src="images/gallery_01.jpg" alt="a" />
+              <img src="images/gallery_02.jpg" alt="b" />
+              <img src="images/gallery_03.jpg" alt="c" />
+            </div>
+          </div>
+          <div class="banner">
+            <img src="images/banner.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <div class="botLogo">
+        <img src="images/logo_Footer.png" alt="" />
+      </div>
+      <!--  -->
+    </div>
+  </body>
+</html>
