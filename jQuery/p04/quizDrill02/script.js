@@ -15,6 +15,4 @@ $(function () {
 
   // 3초마다 슬라이드 이동
   setInterval(moveSlider, 3000);
-  console.log(slideCount);
-  console.log(slideWidth);
 });
