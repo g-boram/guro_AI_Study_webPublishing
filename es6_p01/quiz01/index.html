@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz 01</title>
+    <style>
+      #wrapper {
+        width: 300px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        border: 1px solid grey;
+        background-color: antiquewhite;
+      }
+      #resultBox {
+        height: 40px;
+        margin-top: 20px;
+        text-align: center;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div>
+        <span>숫자 입력</span>
+        <input id="inputVal" />
+        <button onclick="clickBtn()">결과확인</button>
+      </div>
+      <div id="resultBox"></div>
+    </div>
+    <script>
+      function clickBtn() {
+        const value = document.querySelector("#inputVal").value;
+        let check = "";
+
+        if (value % 2 == 0) {
+          check = `2의 배수`;
+        } else if (value % 3 == 0) {
+          check = `3의 배수`;
+        }
+        document.querySelector("#resultBox").innerHTML = `입력하신 숫자 ${value}은(는) ${check} 입니다.`;
+      }
+    </script>
+  </body>
+</html>

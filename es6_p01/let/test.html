@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수 공유 문제 확인</title>
+  </head>
+  <body>
+    <h1>변수 공유 문제 확인</h1>
+    <script>
+      for (let i = 0; i < 5; i++) {
+        // setInterval(함수명, 밀리세컨즈) => 밀리세컨즈 마다 함수 호출 = 실행
+        // setTimeout(함수명) => 밀리세컨즈 후에 1회만 실행
+        function test() {
+          console.log(i);
+        }
+        setTimeout(test, 3000);
+      }
+    </script>
+  </body>
+</html>

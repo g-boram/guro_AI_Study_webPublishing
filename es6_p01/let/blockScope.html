@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>블록스코프</title>
+  </head>
+  <body>
+    <h1>블록스코프 ( { } 중괄호 영역 )</h1>
+
+    <script>
+      var x = 5;
+
+      console.log("외부1 x : " + x);
+      function test() {
+        x = 10;
+        console.log("내부 x : " + x);
+      }
+      test();
+      console.log("외부2 x : " + x);
+    </script>
+  </body>
+</html>
