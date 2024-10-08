@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #wrapper {
+        width: 300px;
+        height: auto;
+        padding: 10px;
+        border: 1px solid grey;
+      }
+      #counter {
+        font-size: 2em;
+        font-weight: bold;
+        text-align: center;
+        margin: 20px 0;
+      }
+      #btnRow {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+      }
+      #btnRow button {
+        width: 100px;
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+        background-color: rgb(187, 103, 117);
+        border: none;
+        cursor: pointer;
+      }
+      #btnRow button:disabled {
+        background-color: grey;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="counter">10</div>
+      <div id="btnRow">
+        <button id="startBtn">Start</button>
+        <button id="stopBtn" disabled>Stop</button>
+      </div>
+    </div>
+
+    <script>
+      let count = 10;
+      let timer;
+
+      const counterDisplay = document.getElementById("counter");
+      const startButton = document.getElementById("startBtn");
+      const stopButton = document.getElementById("stopBtn");
+
+      // 카운트를 시작하는 함수
+      function startCountdown() {
+        timer = setInterval(() => {
+          count--;
+          if (count < 0) {
+            count = 10;
+          }
+          counterDisplay.innerText = count;
+        }, 1000);
+
+        // 버튼 상태 변경 (Start 버튼 비활성화, Stop 버튼 활성화)
+        startButton.disabled = true;
+        stopButton.disabled = false;
+      }
+
+      // 카운트를 멈추는 함수
+      function stopCountdown() {
+        clearInterval(timer);
+
+        // 버튼 상태 변경 (Stop 버튼 비활성화, Start 버튼 활성화)
+        startButton.disabled = false;
+        stopButton.disabled = true;
+      }
+
+      // Start 버튼 클릭 이벤트
+      startButton.addEventListener("click", startCountdown);
+
+      // Stop 버튼 클릭 이벤트
+      stopButton.addEventListener("click", stopCountdown);
+    </script>
+  </body>
+</html>

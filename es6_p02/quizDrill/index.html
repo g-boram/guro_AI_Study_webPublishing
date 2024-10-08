@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #wrapper {
+        width: 300px;
+        height: auto;
+        padding: 10px;
+        border: 1px solid grey;
+      }
+      #title {
+        margin: 20px 0;
+      }
+      #inputRow {
+        margin: 20px 0;
+        > input {
+          height: 30px;
+        }
+        > button {
+          width: 100px;
+          padding: 10px;
+          border-radius: 5px;
+          color: white;
+          background-color: rgb(187, 103, 117);
+          border: none;
+        }
+      }
+      #resWrapper {
+        width: 92%;
+        height: auto;
+        border: 1px solid grey;
+        padding: 10px;
+        > span {
+          width: 10%;
+          height: 10%;
+          display: inline-block;
+        }
+      }
+      #btnRow {
+        display: none;
+        padding: 10px;
+        justify-content: center;
+        > button {
+          width: 100px;
+          padding: 10px;
+          border-radius: 5px;
+          color: white;
+          background-color: rgb(187, 103, 117);
+          border: none;
+        }
+      }
+      #okRow {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="title">[입력영역]</div>
+      <div>숫자입력 (3~9 사이 값 입력)</div>
+      <div id="inputRow">
+        <input id="inputVal" />
+        <button id="resBtn">결과보기</button>
+      </div>
+      <div id="title">[출력영역]</div>
+      <div id="resWrapper"></div>
+      <div class="hidden" id="btnRow">
+        <button id="bottomBtn">재실행</button>
+      </div>
+    </div>
+    <script>
+      // 결과출력 버튼 함수 --------------------------------------------------------------------
+      document.querySelector("#resBtn").addEventListener("click", () => {
+        // 입력받은 값
+        const value = document.querySelector("#inputVal").value;
+        // 입력된 값으로 배열 생성
+        const valueArr = [...Array(Number(value)).keys()].map((e) => e + 1);
+
+        // 결과를 출력할 영역
+        const resultDom = document.getElementById("resWrapper");
+        const bottomBtnDom = document.getElementById("btnRow");
+
+        // 빈값일 경우
+        if (value == "") {
+          resultDom.innerText = "입력값이 입력되지 않았습니다.";
+          return;
+        }
+        // 입력된 값이 3~9 까지인지 검사
+        if (!(3 <= value && value <= 9)) {
+          resultDom.innerHTML = "입력 오류! <br/> 다시 입력해주세요. <br/> (3~9 사이 값 입력)";
+          return;
+        }
+
+        let itemCnt = 0;
+        let rowCnt = 1;
+        resultDom.innerHTML = "";
+
+        while (true) {
+          if (rowCnt == 10) {
+            resultDom.innerHTML += `<div id="okRow">Print OK!</div>`;
+            // bottomBtnDom.classList.remove("hidden");
+            bottomBtnDom.css({ display: flex });
+            break;
+          }
+
+          valueArr.forEach((e, i) => {
+            if (rowCnt == 10) {
+              return;
+            }
+            if (itemCnt == 10) {
+              resultDom.innerHTML += "<br/>";
+              itemCnt = 0;
+              ++rowCnt;
+            }
+            resultDom.innerHTML += `<span>${e}</span>`;
+            itemCnt++;
+          });
+        }
+      });
+      // 재실행 버튼 함수 --------------------------------------------------------------------
+      document.querySelector("#bottomBtn").addEventListener("click", () => {
+        document.querySelector("#inputVal").value = "";
+
+        let resultDom = document.getElementById("resWrapper");
+        let bottomBtnDom = document.getElementById("btnRow");
+
+        resultDom.innerHTML = "";
+        // bottomBtnDom.classList.add("hidden");
+        bottomBtnDom.css({ display: none });
+      });
+    </script>
+  </body>
+</html>
