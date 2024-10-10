@@ -1,0 +1,45 @@
+#wrapper {
+  width: 300px;
+  height: auto;
+  padding: 20px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+#flexRow {
+  display: flex;
+  justify-content: space-between;
+  height: 35px;
+  margin: 10px 0;
+  > input {
+    padding: 5px;
+    text-align: center;
+  }
+}
+#btnRow {
+  display: flex;
+  > button {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(186, 84, 101);
+    color: white;
+    padding: 5px 0;
+    margin: 10px 0;
+  }
+}
+#resultRow {
+  margin: 20px 0;
+  > div {
+    height: 35px;
+    > span {
+      margin: 0 10px;
+    }
+  }
+}
+#rankItem {
+  margin: 0 10px;
+}
+.hidden {
+  display: none;
+}

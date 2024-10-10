@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Drill</title>
+    <link rel="styleSheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>[수험생 성적처리]</h1>
+      <div id="inputWrapper">
+        <div id="flexRow">
+          <div>점수1</div>
+          <input id="score1" />
+        </div>
+        <div id="flexRow">
+          <div>점수2</div>
+          <input id="score2" />
+        </div>
+        <div id="flexRow">
+          <div>점수3</div>
+          <input id="score3" />
+        </div>
+        <div id="flexRow">
+          <div>점수4</div>
+          <input id="score4" />
+        </div>
+        <div id="flexRow">
+          <div>점수5</div>
+          <input id="score5" />
+        </div>
+      </div>
+      <div id="btnRow">
+        <button id="printResult">결과보기</button>
+      </div>
+      <div class="hidden" id="resultRow">
+        <div>1. 응시자 평균 : <span id="scoreAvg"></span></div>
+        <div>2. 성적 우수자 : <span id="scoreBest"></span></div>
+        <div>3. 석차 : <span id="scoreRank"></span></div>
+        <br />
+        <div>Print OK.</div>
+      </div>
+    </div>
+    <script>
+      const scoreAvg = document.getElementById("scoreAvg"); // 평균
+      const scoreBest = document.getElementById("scoreBest"); // 우수자
+      const scoreRank = document.getElementById("scoreRank"); // 석차
+      const printBtn = document.getElementById("printResult"); // 결과보기 버튼
+      const resultRow = document.getElementById("resultRow"); // 결과출력 영역
+
+      printBtn.addEventListener("click", (e) => {
+        // 각 점수 입력 값을 가져옴
+        const rawScores = [
+          document.getElementById("score1").value.trim(),
+          document.getElementById("score2").value.trim(),
+          document.getElementById("score3").value.trim(),
+          document.getElementById("score4").value.trim(),
+          document.getElementById("score5").value.trim(),
+        ];
+
+        // "결"을 제외하고 숫자만 필터링
+        // filter()를 사용하여 "결"이나 빈 값이 아닌 숫자만 처리.
+        const scores = rawScores
+          .filter((score) => score.toLowerCase() !== "결" && !isNaN(score) && score !== "")
+          .map(Number);
+
+        // 점수 유효성 검사
+        if (scores.some(isNaN)) {
+          alert("모든 점수 필드를 입력하세요.");
+          return;
+        }
+
+        // 결 입력갯수
+        const noScore = rawScores.length - scores.length;
+
+        // 평균 계산
+        const average = (scores.reduce((sum, score) => sum + score, 0) / scores.length).toFixed(1);
+        scoreAvg.textContent = average;
+
+        // 최고 점수 (우수자) 계산
+        const bestScore = Math.max(...scores);
+        scoreBest.textContent = bestScore;
+
+        // 석차 계산 (점수 내림차순 정렬)
+        // 내림차순은 sort로 오름차순을 한 후 reverse로 뒤집어 주는것
+        const sortedScores = [...scores].sort().reverse();
+        // scoreRank.textContent = sortedScores.toString();
+        scoreRank.innerHTML = sortedScores.map((v) => {
+          return `<span id="rankItem">${v.toString()}</span>`;
+        });
+
+        // 결과 표시
+        resultRow.classList.remove("hidden");
+      });
+    </script>
+  </body>
+</html>
