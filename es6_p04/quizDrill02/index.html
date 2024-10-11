@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Drill 02</title>
+    <link rel="styleSheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>중앙값 산출</h1>
+      <hr />
+      <!-- 초기화 버튼 -->
+      <button id="initialBtn" onclick="initializeArray()">배열 값 입력하기</button>
+
+      <!-- 결과 출력 -->
+      <div id="numArrayBox">
+        <p id="resultArray">입력된 배열 값:</p>
+      </div>
+      <button id="findBtn" onclick="findMedian()">Median 찾기</button>
+      <div id="numArrayBox">
+        <p id="medianValue">중앙값:</p>
+      </div>
+    </div>
+    <script>
+      let arr = []; // 숫자를 저장할 배열
+      let inputIndex = 1; // 입력 순서를 위한 인덱스
+
+      // 배열 초기화 및 입력 시작
+      function initializeArray() {
+        arr = [];
+        inputIndex = 1;
+        alert("배열이 초기화되었습니다.");
+        inputNumber(); // 초기화 후 첫 번째 입력 받기
+      }
+
+      // 숫자 입력 받기 (알림창)
+      function inputNumber() {
+        let inputValue = prompt(`${inputIndex}번째 숫자를 입력하세요:`, "");
+
+        // 취소를 눌렀을 경우 입력 중단
+        if (inputValue === null) {
+          alert("입력이 중단되었습니다.");
+          return;
+        }
+
+        if (inputValue !== "" && !isNaN(inputValue)) {
+          arr.push(Number(inputValue));
+          inputIndex++;
+          displayArray();
+
+          // 입력을 계속 받도록 prompt를 다시 호출
+          if (confirm("계속 입력하시겠습니까?")) {
+            inputNumber();
+          }
+        } else {
+          alert("유효한 숫자를 입력하세요.");
+          inputNumber(); // 유효하지 않은 값이 입력되면 다시 입력 요청
+        }
+      }
+
+      // 배열 출력
+      function displayArray() {
+        document.getElementById("resultArray").innerText = `입력된 배열 값: [${arr.join(", ")}]`;
+      }
+
+      // 중앙값 계산 함수
+      function findMedian() {
+        if (arr.length === 0) {
+          alert("배열이 비어 있습니다. 먼저 숫자를 입력하세요.");
+          return;
+        }
+
+        let sortedArr = [...arr].sort((a, b) => a - b); // 배열을 오름차순 정렬
+        let median;
+        let mid = Math.floor(sortedArr.length / 2);
+
+        if (sortedArr.length % 2 === 0) {
+          median = (sortedArr[mid - 1] + sortedArr[mid]) / 2;
+        } else {
+          median = sortedArr[mid];
+        }
+
+        document.getElementById("medianValue").innerText = `중앙값: ${median}`;
+      }
+    </script>
+  </body>
+</html>

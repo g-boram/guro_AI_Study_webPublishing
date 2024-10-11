@@ -1,0 +1,42 @@
+#wrapper {
+  width: 300px;
+  height: auto;
+  padding: 20px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  > h1 {
+    height: 20px;
+  }
+  > hr {
+    width: 100%;
+  }
+}
+
+#initialBtn,
+#findBtn {
+  width: 100%;
+  border: none;
+  height: 30px;
+  border-radius: 5px;
+  background-color: rgb(199, 132, 144);
+  color: white;
+}
+#findBtn {
+  background-color: rgb(139, 148, 205);
+}
+
+#numArrayBox {
+  width: 95%;
+  padding: 5px;
+  margin: 10px 0;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+}
