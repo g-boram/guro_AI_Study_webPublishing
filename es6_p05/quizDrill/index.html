@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>랜덤 숫자 출력</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 2px solid black;
+        display: inline-block;
+        text-align: center;
+        line-height: 100px;
+        font-size: 24px;
+        margin-right: 10px;
+      }
+      .button-container {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box1" class="box">EF</div>
+    <div id="box2" class="box">EF</div>
+    <div id="box3" class="box">EF</div>
+
+    <div class="button-container">
+      <button id="startBtn">Start</button>
+      <button id="go1">Go! 1</button>
+      <button id="go2">Go! 2</button>
+      <button id="go3">Go! 3</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+
+    <script>
+      let intervalIds = [];
+      let randomNumbers = [];
+      let lockedNumbers = [];
+
+      // 1부터 10 사이의 랜덤 값 중복 없이 3개 생성
+      function generateUniqueRandomNumbers() {
+        const numbers = [];
+        while (numbers.length < 3) {
+          const randomNumber = Math.floor(Math.random() * 10) + 1;
+          if (!numbers.includes(randomNumber)) {
+            numbers.push(randomNumber);
+          }
+        }
+        return numbers;
+      }
+
+      // 0.1초 간격으로 숫자 변경 시작
+      function startRandomizing() {
+        randomNumbers = generateUniqueRandomNumbers();
+        intervalIds = [1, 2, 3].map((i) => {
+          return setInterval(() => {
+            const box = document.getElementById(`box${i}`);
+            box.textContent = Math.floor(Math.random() * 10) + 1;
+          }, 100);
+        });
+      }
+
+      // Go 버튼 클릭 시 숫자 고정
+      function lockNumber(index) {
+        if (!lockedNumbers.includes(index)) {
+          clearInterval(intervalIds[index - 1]);
+          document.getElementById(`box${index}`).textContent = randomNumbers[lockedNumbers.length];
+          lockedNumbers.push(index);
+        }
+      }
+
+      // Reset 버튼 클릭 시 초기화
+      function resetBoxes() {
+        lockedNumbers = [];
+        randomNumbers = [];
+        intervalIds.forEach((id) => clearInterval(id));
+        document.getElementById("box1").textContent = "EF";
+        document.getElementById("box2").textContent = "EF";
+        document.getElementById("box3").textContent = "EF";
+      }
+
+      document.getElementById("startBtn").addEventListener("click", startRandomizing);
+      document.getElementById("go1").addEventListener("click", () => lockNumber(1));
+      document.getElementById("go2").addEventListener("click", () => lockNumber(2));
+      document.getElementById("go3").addEventListener("click", () => lockNumber(3));
+      document.getElementById("resetBtn").addEventListener("click", resetBoxes);
+    </script>
+  </body>
+</html>

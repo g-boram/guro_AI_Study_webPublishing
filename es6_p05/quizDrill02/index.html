@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>재고 관리 시스템</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .container {
+        max-width: 400px;
+        margin: auto;
+      }
+      input {
+        padding: 10px;
+        margin: 5px 0;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      button {
+        padding: 10px;
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        padding: 10px;
+        background-color: #f9f9f9;
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #ddd;
+      }
+      .delete-btn {
+        background-color: #ff7c6d;
+        color: white;
+        width: 100px;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+      .delete-btn:hover {
+        background-color: #ae3326;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>상품 등록</h2>
+      <input type="text" id="productName" placeholder="상품명 입력" />
+      <input type="number" id="productQuantity" placeholder="수량 입력" min="1" />
+      <button id="addProductBtn">등록하기</button>
+
+      <h3>재고 목록</h3>
+      <ul id="stockList"></ul>
+    </div>
+
+    <script>
+      const stockMap = new Map(); // 상품을 저장할 Map 객체
+      const stockList = document.getElementById("stockList");
+      const addProductBtn = document.getElementById("addProductBtn");
+
+      // 등록 버튼 클릭 시 처리할 함수
+      addProductBtn.addEventListener("click", () => {
+        const productName = document.getElementById("productName").value.trim();
+        const productQuantity = parseInt(document.getElementById("productQuantity").value.trim());
+
+        if (productName === "" || isNaN(productQuantity) || productQuantity <= 0) {
+          alert("상품명과 수량을 정확히 입력해주세요.");
+          return;
+        }
+
+        if (stockMap.has(productName)) {
+          alert("이미 등록된 상품입니다.");
+          return;
+        }
+
+        // 등록 확인
+        const confirmAdd = confirm(`${productName}을(를) ${productQuantity}개 등록하시겠습니까?`);
+        if (!confirmAdd) return; // 취소하면 등록하지 않음
+
+        // Map 객체에 상품 추가
+        stockMap.set(productName, productQuantity);
+
+        // 목록에 상품 출력
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `${productName} - ${productQuantity}개 
+            <button class="delete-btn">삭제</button>`;
+
+        stockList.appendChild(listItem);
+
+        // 삭제 버튼 클릭 시 처리
+        listItem.querySelector(".delete-btn").addEventListener("click", () => {
+          const confirmDelete = confirm(`${productName}을(를) 목록에서 삭제하시겠습니까?`);
+          if (confirmDelete) {
+            stockMap.delete(productName); // Map에서 상품 삭제
+            stockList.removeChild(listItem); // 목록에서 상품 삭제
+          }
+        });
+
+        // 입력란 초기화
+        document.getElementById("productName").value = "";
+        document.getElementById("productQuantity").value = "";
+      });
+    </script>
+  </body>
+</html>
