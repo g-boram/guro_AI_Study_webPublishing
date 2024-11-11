@@ -76,6 +76,26 @@ try {
 } 
 %>    			
 
+
+	<%
+	String validationMessage = "";
+    if (request.getParameter("error") != null) {
+        validationMessage = request.getParameter(
+        
+
+        validationMessage = "error");
+    }
+	%>
+		 <form action ="updateProc.jsp" method="post">
+	        <label>상품번호:</label>
+	        <input type="text" id="productNum" name="productNum">
+	        <label>새 가격:</label>
+	        <input type="text" id="newPrice" name="newPrice">
+	        
+	        <button type ="submit">수정하기</button>
+	    </form>
+	
+	    <p style= "color: red;"><%= validationMessage %></p>		
 		</div>
 		<!-- div#goodsListArea -->
 	</div>
