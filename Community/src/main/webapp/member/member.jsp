@@ -106,7 +106,9 @@
 				<tr>
 					<td>생년월일</td> 
 					<td>
-						<input type="text" name="uBirthday" id="uBirthday" maxlength="6" size="8">&nbsp;&nbsp;&nbsp;&nbsp; <span>ex. 830815</span>
+						<input type="text" name="uBirthday" id="uBirthday" maxlength="6" size="8">
+						&nbsp;&nbsp;&nbsp;&nbsp; 
+						<span>ex. 830815</span>
 					</td>
 					<td>&nbsp;</td>
 				</tr>

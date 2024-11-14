@@ -32,7 +32,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>아이디 중복 체크</title>
+    <title>회원가입 완료</title>
     <link rel="stylesheet" href="/style/style_Common.css">
     <script src="/source/jquery-3.6.0.min.js"></script>
     <script src="/script/script_Join.js"></script>
@@ -51,7 +51,7 @@
         </div>
         <hr>
         <div id="closeBtnArea">
-            <button type="button" onclick="<%= result ? "location.href='/loginPage.jsp'" : "history.back()" %>">
+            <button type="button" onclick="<%= result ? "location.href='/login.jsp'" : "history.back()" %>">
                 <%= result ? "로그인 페이지" : "뒤로가기" %>
             </button>
         </div>
