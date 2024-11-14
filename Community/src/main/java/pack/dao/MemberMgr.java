@@ -103,7 +103,6 @@ public class MemberMgr {
       
       /* 회원가입 시작 (/member/memberProc.jsp) */ 
       public boolean insertMember(MemberBean bean) {
-    	  System.out.println("bean: " + bean);
     	  
     	  boolean flag = false;
     	  
@@ -193,43 +192,122 @@ public class MemberMgr {
        }
        /* 로그인 처리 끝 (/member/loginProc.jsp) */
       
+      
+      
+      
       /* 회원정보 수정 시작 (/member/memberModProc.jsp) */ 
       public MemberBean modifyMember(String id) {
-    	  MemberBean mBean = new MemberBean();
-    	  // Statement => 매개변수가 없을 경우
-    	  // PreparedStatement => 매개변수가 있을 경우
-    	  try {
-    		  try {
-    		  conn = dbcp.mtdConn();
-    		  String sql = "select uId, uPw, uName, uEmail, ";
-    		  sql += " gender, uBirthday, uZipcode, ";
-    		  sql += " uAddr, uHobby, uJob, joinTM ";
-    		  sql += " from member where uId = ?"; pstmt = conn.prepareStatement(sql);
-    		  pstmt.setString(1, id);
-    		  objRS = pstmt.executeQuery();
-    		  if (objRS.next()) { mBean.setuId(objRS.getString("uId"));
-    		  }
-    		  mBean.setuPw(objRS.getString("uPw")); mBean.setuName(objRS.getString("uName")); mBean.setuEmail(objRS.getString("uEmail")); mBean.setGender(objRS.getString("gender")); mBean.setuBirthday(objRS.getString("uBirthday")); mBean.setuZipcode(objRS.getString("uZipcode")); mBean.setuAddr(objRS.getString("uAddr")); String[] hobbyAry = new String[5];
-    		  String hobby = objRS.getString("uHobby");
-    		  // "가나다AB"
-    		  hobbyAry = hobby.split(""); // 인덱스0 "가" 인덱스1 "나" 
-    		  //System.out.println("split 결과 : " + Arrays.toString(hobbyAry)); 
-    		  mBean.setuHobby(hobbyAry);
-    		  mBean.setuJob(objRS.getString("uJob"));
-    		  } catch (Exception e) {
-    		  System.out.print("오류발생 : " + e.getMessage());
-    		  } finally {
-    			  try { 
-    				  conn.close(); 
-    			  } catch (Exception ex) { 
-    				  System.out.println(ex.getMessage());
-    			  }
-    		  }
-    		  return mBean;
-    		    
-    	  }
+    	    MemberBean mBean = new MemberBean();
+    	    String sql = "SELECT uId, uPw, uName, uEmail, gender, uBirthday, " +
+    	                 "uZipcode, uAddr, uHobby, uJob, joinTM FROM member WHERE uId = ?";
+    	    
+    	    try (Connection conn = dbcp.mtdConn();
+    	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+    	        
+    	        // SQL 매개변수 설정
+    	        pstmt.setString(1, id);
+    	        
+    	        try (ResultSet objRS = pstmt.executeQuery()) {
+    	            if (objRS.next()) {
+    	                // ResultSet 데이터를 MemberBean에 매핑
+    	                mBean.setuId(objRS.getString("uId"));
+    	                mBean.setuPw(objRS.getString("uPw"));
+    	                mBean.setuName(objRS.getString("uName"));
+    	                mBean.setuEmail(objRS.getString("uEmail"));
+    	                mBean.setGender(objRS.getString("gender"));
+    	                mBean.setuBirthday(objRS.getString("uBirthday"));
+    	                mBean.setuZipcode(objRS.getString("uZipcode"));
+    	                mBean.setuAddr(objRS.getString("uAddr"));
+
+    	                // Hobby 데이터를 분리하여 배열로 설정
+    	                String hobby = objRS.getString("uHobby");
+    	                if (hobby != null && !hobby.isEmpty()) {
+    	                    mBean.setuHobby(hobby.split(","));
+    	                }
+
+    	                mBean.setuJob(objRS.getString("uJob"));
+    	            }
+    	        }
+    	    } catch (Exception e) {
+    	        // 예외 로그 출력
+    	        System.err.println("오류 발생: " + e.getMessage());
+    	    }
+    	    return mBean;
+    	}
+
     	 /* 회원정보 수정 끝 (/member/memberModProc.jsp) */
     	  
+      /* 회원정보 수정 시작 (/member/memberModProc.jsp) */ 
+      public boolean updateMember(MemberBean bean) {
+    	    boolean flag = false;
+    	    System.out.println("updateMember");
+
+    	    try {
+    	        // MySQL DB connection
+    	        conn = dbcp.mtdConn(); // Ensure dbcp is configured for MySQL
+
+    	        String sql = "UPDATE member SET "
+    	                + "uPw = ?, uName = ?, uEmail = ?, gender = ?, uBirthday = ?, "
+    	                + "uZipcode = ?, uAddr = ?, uHobby = ?, uJob = ? "
+    	                + "WHERE uId = ?";
+
+    	        pstmt = conn.prepareStatement(sql);
+
+    	        // SQL parameters
+    	        pstmt.setString(1, bean.getuPw());
+    	        pstmt.setString(2, bean.getuName());
+    	        pstmt.setString(3, bean.getuEmail());
+    	        pstmt.setString(4, bean.getGender());
+    	        pstmt.setString(5, bean.getuBirthday());
+    	        pstmt.setString(6, bean.getuZipcode());
+    	        pstmt.setString(7, bean.getuAddr());
+
+    	        // Process hobby data
+    	        String[] hobby = bean.getuHobby(); // {"여행", "게임", "운동"}
+    	        String[] hobbyName = {"인터넷", "여행", "게임", "영화", "운동"};
+    	        char[] hobbyCode = {'0', '0', '0', '0', '0'};
+
+    	        for (int i = 0; i < hobby.length; i++) {
+    	            for (int j = 0; j < hobbyName.length; j++) {
+    	                if (hobby[i].equals(hobbyName[j])) {
+    	                    hobbyCode[j] = '1';
+    	                }
+    	            }
+    	        }
+
+    	        // Setting hobby as a string of "01101" (binary-like format)
+    	        pstmt.setString(8, new String(hobbyCode));  // Store as binary string (e.g., "01101")
+    	        pstmt.setString(9, bean.getuJob());
+    	        pstmt.setString(10, bean.getuId()); // uId is used in WHERE condition
+
+    	        // Execute update and check if one row was updated
+    	        int rowCnt = pstmt.executeUpdate();
+    	        flag = (rowCnt == 1); // If one row is updated, it's successful
+    	        
+    	    } catch (Exception e) {
+    	        // Log error
+    	        System.err.println("Error occurred: " + e.getMessage());
+    	        e.printStackTrace();
+    	    } finally {
+    	        // Clean up resources
+    	        try {
+    	            if (pstmt != null) pstmt.close();
+    	            if (conn != null) conn.close();
+    	        } catch (Exception ex) {
+    	            System.err.println("Resource cleanup error: " + ex.getMessage());
+    	        }
+    	    }
+
+    	    return flag;
+    	}
+
+
+      
+      
+      
+      
+      
+      
     	  /* 로그인 사용자 이름 반환(/bbs/write.jsp) 시작 */ 
     	  public String getMemberName(String uId) {
     		  String uName = ""; 
@@ -245,7 +323,7 @@ public class MemberMgr {
     		  }catch (Exception e) {
     			  System.out.print("오류발생 : " + e.getMessage());
     		  } finally {
-    		  try { conn.close(); } catch (Exception ex) { System.out.println(ex.getMessage());}
+    			  try { conn.close(); } catch (Exception ex) { System.out.println(ex.getMessage());}
     		  }
     		  return uName;
     		  }

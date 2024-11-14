@@ -51,7 +51,7 @@
         </div>
         <hr>
         <div id="closeBtnArea">
-            <button type="button" onclick="<%= result ? "location.href='/login.jsp'" : "history.back()" %>">
+            <button type="button" onclick="<%= result ? "location.href='/member/login.jsp'" : "history.back()" %>">
                 <%= result ? "로그인 페이지" : "뒤로가기" %>
             </button>
         </div>
