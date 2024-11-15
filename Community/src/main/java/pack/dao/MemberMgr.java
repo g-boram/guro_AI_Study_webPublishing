@@ -234,8 +234,7 @@ public class MemberMgr {
     	    }
     	    return mBean;
     	}
-
-    	 /* 회원정보 수정 끝 (/member/memberModProc.jsp) */
+     /* 회원정보 수정 끝 (/member/memberModProc.jsp) */
     	  
       /* 회원정보 수정 시작 (/member/memberModProc.jsp) */ 
       public boolean updateMember(MemberBean bean) {
@@ -297,13 +296,36 @@ public class MemberMgr {
     	            System.err.println("Resource cleanup error: " + ex.getMessage());
     	        }
     	    }
-
     	    return flag;
     	}
-
-
       
       
+      
+      /* 회원정보 탈퇴 시작 (/member/memberQuitProc.jsp) */ 
+      public boolean deleteMember(String uId) {
+    	    boolean flag = false; // 탈퇴 성공 여부 플래그
+    	    System.out.println("deleteMember");
+
+    	    String sql = "DELETE FROM member WHERE uId = ?";
+
+    	    try (Connection conn = dbcp.mtdConn();
+    	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+    	        // SQL에 uId 설정
+    	        pstmt.setString(1, uId);
+
+    	        // 실행 및 결과 확인
+    	        int rowCnt = pstmt.executeUpdate();
+    	        flag = (rowCnt == 1); // 한 명의 사용자가 삭제되었을 경우 성공
+
+    	    } catch (Exception e) {
+    	        System.err.println("Error occurred: " + e.getMessage());
+    	        e.printStackTrace();
+    	    }
+
+    	    return flag; // 성공 여부 반환
+    	}
+
       
       
       

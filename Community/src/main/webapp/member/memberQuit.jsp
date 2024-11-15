@@ -10,6 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>회원탈퇴</title>
 	<link rel="stylesheet" href="/style/style_Common.css">
 	<link rel="stylesheet" href="/style/style_Template.css">
+	<script src="/source/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -25,7 +26,14 @@
 		</main> 
 		<%@ include file="/ind/footerTmp.jsp" %>
     </div>
-	<script src="/source/jquery-3.6.0.min.js"></script>
-	<script src="/script/script.js"></script> 
+	<script>
+		// 회원 탈퇴 버튼 클릭 이벤트
+		document.getElementById("memQuitBtn").addEventListener("click", function () {
+		    if (confirm("회원 탈퇴를 진행하시겠습니까?")) {
+		        // 회원 탈퇴 페이지로 이동
+		        location.href = "/member/memberQuitProc.jsp";
+		    }
+		});
+	</script>
 </body>
 </html>

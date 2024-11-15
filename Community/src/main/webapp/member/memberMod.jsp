@@ -5,12 +5,10 @@
 	String uId_Session = (String)session.getAttribute("uId_Session"); %>
 	<jsp:useBean id="mMgr" class="pack.dao.MemberMgr" />
 <%
-	out.print(uId_Session);
 	MemberBean mBean = mMgr.modifyMember(uId_Session);
 %>
 <%
 	String[] uHobby = mBean.getuHobby(); 
-	out.print(uHobby);
 %>	 
 
 <!DOCTYPE html> 
